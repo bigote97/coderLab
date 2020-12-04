@@ -1,11 +1,113 @@
+<!-- me base en esta pagina para hacer estos -->
+<!-- https://plataforma.coderhouse.com/contenidos/webinars -->
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoderLab</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
-    
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-container>
+					<v-card>
+						<v-card-text class="menu">
+							<a href="#">proyectos</a>
+							<a href="#">colaboraciones</a>
+							<a href="#">mis proyectos</a>
+							<a href="#">tengo una idea</a>
+						</v-card-text>
+						<v-divider></v-divider>
+						<v-card-title>Proyectos</v-card-title>
+						<v-container>
+							<v-row>
+								<v-col v-for="proyecto, i in proyectos" :key="i">
+									<v-hover v-slot="{ hover }">
+										<v-card max-width="344">
+											<v-img
+												height="250"
+												:src="proyecto.src"
+											></v-img>
+											<v-card-title>
+												{{proyecto.titulo}}
+											</v-card-title>
+											<v-card-text>
+												{{proyecto.descripcionBreve}}
+											</v-card-text>
+											<v-expand-transition>
+												<div
+													v-if="hover"
+													class="d-flex transition-fast-in-fast-out darken-2 v-card--reveal display-3"
+													style="height: 100%;"
+												>
+													<v-card-text>
+														{{proyecto.descripcionExt}}
+													</v-card-text>
+												</div>
+											</v-expand-transition>
+										</v-card>
+									</v-hover>
+								</v-col>
+							</v-row>
+						</v-container>
+					</v-card>
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+			data:{
+				proyectos: [
+					{
+						titulo:'carrito de compras', 
+						descripcionBreve: 'carrito de compras para mi web personal del emprendimiento', 
+						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
+						src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg'
+					},
+					{
+						titulo:'stock web compras', 
+						descripcionBreve: 'carrito de compras para mi web personal del emprendimiento', 
+						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
+						src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg'
+					},
+					{
+						titulo:'to do list', 
+						descripcionBreve: 'to do list para mi web personal del emprendimiento', 
+						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
+						src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg'
+					},
+					{
+						titulo:'carrito ', 
+						descripcionBreve: 'carrito de servicios para mi web personal del emprendimiento', 
+						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
+						src: 'https://cdn.vuetifyjs.com/images/cards/cooking.png'
+					},
+					{
+						titulo:'stock web compras', 
+						descripcionBreve: 'carrito de compras para mi web personal del emprendimiento', 
+						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
+						src: "https://res.cloudinary.com/hdsqazxtw/image/upload/f_auto/w_305/v1591609348/Fondo-Negro-y-Grilla-Lineal_1_cqkvah.png"									
+					},
+					{
+						titulo:'to do list', 
+						descripcionBreve: 'to do list para mi web personal del emprendimiento', 
+						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
+						src: "https://res.cloudinary.com/hdsqazxtw/image/upload/f_auto/w_305/v1591609348/Fondo-Negro-y-Grilla-Lineal_1_cqkvah.png"								
+					}
+				],
+			},
+    })
+  </script>
 </body>
 </html>

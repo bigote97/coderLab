@@ -3,9 +3,10 @@
     margin: 0;
     box-sizing: border-box;
 }
-.menu{
-    color: black;
-}
 a{
     text-decoration: none;
+}
+.menu:hover{
+    color: brown;
+    text-decoration: underline;
 }

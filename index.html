@@ -8,7 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<title>CoderLab</title>
 </head>
 <body>
   <div id="app">
@@ -16,11 +17,11 @@
       <v-main>
         <v-container>
 					<v-card>
-						<v-card-text class="menu">
-							<a href="#">proyectos</a>
-							<a href="#">colaboraciones</a>
-							<a href="#">mis proyectos</a>
-							<a href="#">tengo una idea</a>
+						<v-card-text>
+							<a href="#" class="text--primary menu">Proyectos</a>
+							<a href="#" class="text--primary menu">Colaboraciones</a>
+							<a href="#" class="text--primary menu">Mis proyectos</a>
+							<a href="#" class="text--primary menu">Tengo una idea</a>
 						</v-card-text>
 						<v-divider></v-divider>
 						<v-card-title>Proyectos</v-card-title>
@@ -39,15 +40,29 @@
 											<v-card-text>
 												{{proyecto.descripcionBreve}}
 											</v-card-text>
-											<v-expand-transition>
+											<v-divider></v-divider>
+											<v-expand-transition z-index='999'>
 												<div
 													v-if="hover"
 													class="d-flex transition-fast-in-fast-out darken-2 v-card--reveal display-3"
 													style="height: 100%;"
 												>
-													<v-card-text>
-														{{proyecto.descripcionExt}}
-													</v-card-text>
+													
+													<v-row>
+														<v-col cols="12">
+															<v-card-text class="pb-0">
+																{{proyecto.descripcionExt}}
+															</v-card-text>
+														</v-col>
+														<v-col cols="12">
+															<v-card-actions class="pt-0">
+																<v-btn
+																	color="primary"
+																	elevation="2"
+																>VER PROYECTO</v-btn>
+															</v-card-actions>
+														</v-col>
+													</v-row>
 												</div>
 											</v-expand-transition>
 										</v-card>

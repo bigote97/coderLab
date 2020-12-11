@@ -100,7 +100,7 @@
 									<v-btn
 										color="primary"
 										elevation="2"
-										href="https://github.com/"
+										:href="proyectos[indice].colaborar"
 										target="_blank"
 									>COLABORAR</v-btn>
 								</v-card-actions>
@@ -117,7 +117,6 @@
     new Vue({
       el: '#app',
       vuetify: new Vuetify(),
-			
 			data:{
 				indice:'',
 				show: false,
@@ -127,42 +126,42 @@
 						descripcionBreve: 'carrito de compras para mi web personal del emprendimiento', 
 						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
 						src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg',
-						redirecciona: 'proyecto.html',
+						colaborar: 'https://github.com'
 					},
 					{
 						titulo:'stock web compras', 
 						descripcionBreve: 'carrito de compras para mi web personal del emprendimiento', 
 						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
 						src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg',
-						redirecciona: 'proyecto.html',
+						colaborar: 'https://github.com'
 					},
 					{
 						titulo:'to do list', 
 						descripcionBreve: 'to do list para mi web personal del emprendimiento', 
 						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
 						src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg',
-						redirecciona: 'proyecto.html',
+						colaborar: 'https://github.com'
 					},
 					{
 						titulo:'carrito ', 
 						descripcionBreve: 'carrito de servicios para mi web personal del emprendimiento', 
 						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
 						src: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-						redirecciona: 'proyecto.html',
+						colaborar: 'https://github.com'
 					},
 					{
 						titulo:'stock web compras', 
 						descripcionBreve: 'carrito de compras para mi web personal del emprendimiento', 
 						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
 						src: "https://res.cloudinary.com/hdsqazxtw/image/upload/f_auto/w_305/v1591609348/Fondo-Negro-y-Grilla-Lineal_1_cqkvah.png"									,
-						redirecciona: 'proyecto.html',
+						colaborar: 'https://github.com'
 					},
 					{
 						titulo:'to do list', 
 						descripcionBreve: 'to do list para mi web personal del emprendimiento', 
 						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
 						src: "https://res.cloudinary.com/hdsqazxtw/image/upload/f_auto/w_305/v1591609348/Fondo-Negro-y-Grilla-Lineal_1_cqkvah.png"								,
-						redirecciona: 'proyecto.html',
+						colaborar: 'https://github.com'
 					}
 				],
 			},

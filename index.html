@@ -25,7 +25,7 @@
 						</v-card-text>
 						<v-divider></v-divider>
 						<v-card-title>Proyectos</v-card-title>
-						<v-container>
+						<v-container v-if="!show">
 							<v-row>
 								<v-col v-for="proyecto, i in proyectos" :key="i">
 									<v-hover v-slot="{ hover }">
@@ -47,7 +47,6 @@
 													class="d-flex transition-fast-in-fast-out darken-2 v-card--reveal display-3"
 													style="height: 100%;"
 												>
-													
 													<v-row>
 														<v-col cols="12">
 															<v-card-text class="pb-0">
@@ -59,6 +58,7 @@
 																<v-btn
 																	color="primary"
 																	elevation="2"
+																	@click="mostrar(i)"
 																>VER PROYECTO</v-btn>
 															</v-card-actions>
 														</v-col>
@@ -70,58 +70,107 @@
 								</v-col>
 							</v-row>
 						</v-container>
+						<v-container v-if="show">
+							<v-subtitle class="mb-2">
+								<a @click="show=!show"> 
+									<div class="grey--text pb-2">
+									<v-icon>
+										mdi-arrow-left
+									</v-icon>
+										volver a proyectos
+									</div>
+								</a>
+							</v-subtitle>
+								<v-img
+								height="250"
+								width="auto"
+								:src="proyectos[indice].src"
+								></v-img>
+								<v-card-title>
+									{{proyectos[indice].titulo}}
+								</v-card-title>
+								<v-card-text>
+									{{proyectos[indice].descripcionBreve}}
+								</v-card-text>
+								<v-card-text>
+									{{proyectos[indice].descripcionExt}}
+								</v-card-text>
+								<v-divider></v-divider>
+								<v-card-actions>
+									<v-btn
+										color="primary"
+										elevation="2"
+										href="https://github.com/"
+										target="_blank"
+									>COLABORAR</v-btn>
+								</v-card-actions>
+						</v-container>
 					</v-card>
-        </v-container>
-      </v-main>
-    </v-app>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+				</v-container>
+			</v-main>
+		</v-app>
+	</div>
+		
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
   <script>
     new Vue({
       el: '#app',
       vuetify: new Vuetify(),
 			data:{
+				indice:'',
+				show: false,
 				proyectos: [
 					{
 						titulo:'carrito de compras', 
 						descripcionBreve: 'carrito de compras para mi web personal del emprendimiento', 
 						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
-						src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg'
+						src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg',
+						redirecciona: 'proyecto.html',
 					},
 					{
 						titulo:'stock web compras', 
 						descripcionBreve: 'carrito de compras para mi web personal del emprendimiento', 
 						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
-						src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg'
+						src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg',
+						redirecciona: 'proyecto.html',
 					},
 					{
 						titulo:'to do list', 
 						descripcionBreve: 'to do list para mi web personal del emprendimiento', 
 						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
-						src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg'
+						src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg',
+						redirecciona: 'proyecto.html',
 					},
 					{
 						titulo:'carrito ', 
 						descripcionBreve: 'carrito de servicios para mi web personal del emprendimiento', 
 						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
-						src: 'https://cdn.vuetifyjs.com/images/cards/cooking.png'
+						src: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+						redirecciona: 'proyecto.html',
 					},
 					{
 						titulo:'stock web compras', 
 						descripcionBreve: 'carrito de compras para mi web personal del emprendimiento', 
 						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
-						src: "https://res.cloudinary.com/hdsqazxtw/image/upload/f_auto/w_305/v1591609348/Fondo-Negro-y-Grilla-Lineal_1_cqkvah.png"									
+						src: "https://res.cloudinary.com/hdsqazxtw/image/upload/f_auto/w_305/v1591609348/Fondo-Negro-y-Grilla-Lineal_1_cqkvah.png"									,
+						redirecciona: 'proyecto.html',
 					},
 					{
 						titulo:'to do list', 
 						descripcionBreve: 'to do list para mi web personal del emprendimiento', 
 						descripcionExt: 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla ',
-						src: "https://res.cloudinary.com/hdsqazxtw/image/upload/f_auto/w_305/v1591609348/Fondo-Negro-y-Grilla-Lineal_1_cqkvah.png"								
+						src: "https://res.cloudinary.com/hdsqazxtw/image/upload/f_auto/w_305/v1591609348/Fondo-Negro-y-Grilla-Lineal_1_cqkvah.png"								,
+						redirecciona: 'proyecto.html',
 					}
 				],
 			},
+			methods:{
+				mostrar(i){
+					this.show = !this.show;
+					this.indice = i;
+				}
+			}
     })
   </script>
 </body>
